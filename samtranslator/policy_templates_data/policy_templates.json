@@ -1747,50 +1747,6 @@
         ]
       }
     },
-    "StepFunctionsStartDescribeExecutionPolicy": {
-      "Description": "Gives permission to start and describe a Step Functions state machine execution.",
-      "Parameters": {
-        "StateMachineName": {
-          "Description":"The name of the state machine to execute."
-        }
-      },
-      "Definition": {
-        "Statement": [
-          {
-            "Effect": "Allow",
-            "Action": [
-              "states:StartExecution"
-            ],
-            "Resource": {
-              "Fn::Sub": [
-                "arn:${AWS::Partition}:states:${AWS::Region}:${AWS::AccountId}:stateMachine:${stateMachineName}",
-                {
-                  "stateMachineName": {
-                    "Ref": "StateMachineName"
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "Effect": "Allow",
-            "Action": [
-              "states:DescribeExecution"
-            ],
-            "Resource": {
-              "Fn::Sub": [
-                "arn:${AWS::Partition}:states:${AWS::Region}:${AWS::AccountId}:execution:${stateMachineName}:*",
-                {
-                  "stateMachineName": {
-                    "Ref": "StateMachineName"
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
     "StepFunctionsExecutionPolicy": {
       "Description": "Gives permission to start a Step Functions state machine execution",
       "Parameters": {
